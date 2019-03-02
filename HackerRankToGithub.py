@@ -1,3 +1,4 @@
+# @author: Gautam Patel
 # Program to transfer all solutions from HackerRank.com to github
 # Step1 - Download json export (with all code submissions) from hackerrank
 # Step2 - Ensure export file path and github repository location below
@@ -64,13 +65,12 @@ def writeSubmission(s):
         f.write('\n')
     f.write(s['code'])
     f.close()
-    #print(code_path)
-    #print(problem_url)
 
 with open(my_hackerrank_export_json, 'r') as master_sub:
     data = json.load(master_sub)
     subs = data['submissions']
     chal_max_sub = {}
+	# no need to write all submissions to a problem.. select the one with max score
     for s in subs:
         challenge = s['challenge']
         contest = s['contest']
