@@ -1,11 +1,18 @@
 # @author: Gautam Patel
 # Problem Description URL: https://www.hackerrank.com/ProjectEuler+/project-euler-24-lexicographic-permutations/problem
-from itertools import permutations
+import math
 
-for _ in range(int(input())):
-    n = int(input())
-    for p in permutations('abcdefghijklm'):
-        n -= 1
-        if n <= 0:
-            print(''.join(p))
-            break
+s = 13
+fact = [math.factorial(i) for i in range(s+1)]
+ch_l = [chr(ord('a')+i) for i in range(s)]
+
+for _ in range(int(input())):   
+    n = int(input())-1
+    ch = ch_l.copy()
+    l = [None]*s
+    for i in range(1,s):
+        l[i-1] = ch[( n // fact[s-i] )]
+        ch.remove(l[i-1])
+        n = n%fact[s-i]
+    l[-1] = ch[0]
+    print(''.join(l))

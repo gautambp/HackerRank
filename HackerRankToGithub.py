@@ -8,8 +8,8 @@
 import json
 import pathlib
 
-rep_base_folder = 'C:/development/training/HackerRank/'
-my_hackerrank_export_json = 'c:/users/gauta/desktop/gautambp_data.json'
+rep_base_folder = 'C:/Users/gautam/development/training/HackerRank'
+my_hackerrank_export_json = 'C:/Users/gautam/Downloads/gautambp_data.json'
 hr_base_url = 'https://www.hackerrank.com/'
 
 file_exts = {
@@ -83,4 +83,4 @@ with open(my_hackerrank_export_json, 'r') as master_sub:
     for k in chal_max_sub:
         s = chal_max_sub[k]
         writeSubmission(s)
-        #print('{} - {} {} {}'.format(s['language'], s['contest'], s['challenge'], s['score']))
+        print('{} - {} {} {}'.format(s['language'], s['contest'], s['challenge'], s['score']))
